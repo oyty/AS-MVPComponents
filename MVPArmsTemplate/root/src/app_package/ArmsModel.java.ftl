@@ -1,20 +1,16 @@
-package ${modelPackageName};
+package ${packageName}.mvp.${subPackageName};
 
-import android.app.Application;
-import com.google.gson.Gson;
-import com.jess.arms.integration.IRepositoryManager;
-import com.jess.arms.mvp.BaseModel;
+import ${packageName}.base.mvp.BaseModel;
 
 <#if needActivity && needFragment>
-import com.jess.arms.di.scope.ActivityScope;
+import ${packageName}.base.mvp.ActivityScope;
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope;
+import ${packageName}.base.mvp.ActivityScope;
 <#elseif needFragment>
-import com.jess.arms.di.scope.FragmentScope;
+import ${packageName}.base.mvp.FragmentScope;
 </#if>
 import javax.inject.Inject;
 
-import ${contractPackageName}.${pageName}Contract;
 
 <#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
 
@@ -27,20 +23,9 @@ import ${contractPackageName}.${pageName}Contract;
 @FragmentScope
 </#if>
 public class ${pageName}Model extends BaseModel implements ${pageName}Contract.Model{
-    @Inject
-    Gson mGson;
-    @Inject
-    Application mApplication;
 
     @Inject
-    public ${pageName}Model(IRepositoryManager repositoryManager) {
-        super(repositoryManager);
+    public ${pageName}Model() {
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        this.mGson = null;
-        this.mApplication = null;
-    }
 }

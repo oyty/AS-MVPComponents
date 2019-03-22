@@ -3,7 +3,6 @@
 
     <application>
         <activity android:name="${ativityPackageName}.${activityClass}"
-            >
-        </activity>
+                  android:screenOrientation="portrait" />
     </application>
 </manifest>

@@ -1,19 +1,15 @@
-package ${moudlePackageName};
+package ${packageName}.mvp.${subPackageName};
 
 <#if needActivity && needFragment>
-import com.jess.arms.di.scope.ActivityScope;
+import ${packageName}.di.scope.ActivityScope;
 <#elseif needActivity>
-import com.jess.arms.di.scope.ActivityScope;
+import ${packageName}.di.scope.ActivityScope;
 <#elseif needFragment>
-import com.jess.arms.di.scope.FragmentScope;
+import ${packageName}.di.scope.FragmentScope;
 </#if>
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
-
-import ${contractPackageName}.${pageName}Contract;
-import ${modelPackageName}.${pageName}Model;
 
 <#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
 
